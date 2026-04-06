@@ -79,7 +79,7 @@ export default function GerardVigoLanding() {
   const [activeProject, setActiveProject] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState({});
-  const sectionRefs = useRef({});
+  const sectionRefs = useRef(/** @type {Record<string, Element | null>} */ ({}));
 
   // Navbar scroll
   useEffect(() => {
@@ -100,7 +100,9 @@ export default function GerardVigoLanding() {
       },
       { threshold: 0.15 },
     );
-    Object.values(sectionRefs.current).forEach((el) => el && obs.observe(el));
+    Object.values(sectionRefs.current).forEach((el) => {
+      if (el instanceof Element) obs.observe(el);
+    });
     return () => obs.disconnect();
   }, []);
 
@@ -188,14 +190,16 @@ export default function GerardVigoLanding() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-          <span className="font-display font-800 text-lg tracking-tight">
+          {/* FIX: font-800 → font-extrabold */}
+          <span className="font-display font-extrabold text-lg tracking-tight">
             GV<span className="text-[#7F77DD]">.</span>
           </span>
           <div className="hidden md:flex items-center gap-8">
             {["Servicios", "Proyectos", "Sobre mí", "Contacto"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                /* FIX: replace(" ", "-") → replaceAll(" ", "-") para múltiples espacios */
+                href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
                 className="nav-link text-sm text-white/60 hover:text-white transition-colors"
               >
                 {item}
@@ -226,20 +230,23 @@ export default function GerardVigoLanding() {
           {/* Badge disponible */}
           <div className="hero-badge inline-flex items-center gap-2 border border-[#7F77DD]/30 bg-[#7F77DD]/10 rounded-full px-4 py-1.5 mb-10">
             <span className="w-2 h-2 rounded-full bg-[#5DCAA5] animate-pulse" />
-            <span className="text-xs text-[#9F9AE8] font-medium tracking-wide">
+            {/* FIX: font-600 → font-semibold */}
+            <span className="text-xs text-[#9F9AE8] font-semibold tracking-wide">
               Disponible para proyectos · Trujillo, PE
             </span>
           </div>
 
           {/* Titular */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-800 leading-[0.95] tracking-tight mb-8">
+          {/* FIX: font-800 → font-extrabold */}
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight mb-8">
             <span className="block text-white">Webs que</span>
             <span className="block text-[#7F77DD]">hacen crecer</span>
             <span className="block text-white">tu negocio.</span>
           </h1>
 
-          <p className="text-white/50 text-lg md:text-xl max-w-xl leading-relaxed mb-12 font-300">
-            Soy <span className="text-white font-500">Gerard Vigo</span>,
+          {/* FIX: font-300 → font-light  |  font-500 → font-medium */}
+          <p className="text-white/50 text-lg md:text-xl max-w-xl leading-relaxed mb-12 font-light">
+            Soy <span className="text-white font-medium">Gerard Vigo</span>,
             desarrollador web freelance. Diseño y construyo experiencias
             digitales rápidas, modernas y a medida para empresas que quieren
             destacar online.
@@ -269,7 +276,8 @@ export default function GerardVigoLanding() {
               { n: "100%", label: "Clientes satisfechos" },
             ].map(({ n, label }) => (
               <div key={label}>
-                <p className="font-display text-3xl font-800 text-white mb-1">
+                {/* FIX: font-800 → font-extrabold */}
+                <p className="font-display text-3xl font-extrabold text-white mb-1">
                   {n}
                 </p>
                 <p className="text-sm text-white/40">{label}</p>
@@ -290,10 +298,12 @@ export default function GerardVigoLanding() {
           ref={registerRef("servicios-inner")}
           className={`fade-up ${isVisible("servicios-inner") ? "visible" : ""}`}
         >
-          <p className="text-xs text-[#7F77DD] font-600 tracking-[0.2em] uppercase mb-4">
+          {/* FIX: font-600 → font-semibold */}
+          <p className="text-xs text-[#7F77DD] font-semibold tracking-[0.2em] uppercase mb-4">
             Lo que ofrezco
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-800 mb-16 leading-tight">
+          {/* FIX: font-800 → font-extrabold */}
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-16 leading-tight">
             Servicios diseñados
             <br />
             <span className="text-white/30">para resultados reales.</span>
@@ -311,7 +321,8 @@ export default function GerardVigoLanding() {
               <div className="text-2xl mb-5 text-[#7F77DD] group-hover:scale-110 transition-transform inline-block">
                 {s.icon}
               </div>
-              <h3 className="font-display text-xl font-700 mb-3">{s.title}</h3>
+              {/* FIX: font-700 → font-bold */}
+              <h3 className="font-display text-xl font-bold mb-3">{s.title}</h3>
               <p className="text-white/40 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
@@ -330,10 +341,12 @@ export default function GerardVigoLanding() {
             ref={registerRef("proyectos-title")}
             className={`fade-up ${isVisible("proyectos-title") ? "visible" : ""} mb-16`}
           >
-            <p className="text-xs text-[#5DCAA5] font-600 tracking-[0.2em] uppercase mb-4">
+            {/* FIX: font-600 → font-semibold */}
+            <p className="text-xs text-[#5DCAA5] font-semibold tracking-[0.2em] uppercase mb-4">
               Trabajo actual
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-800 leading-tight">
+            {/* FIX: font-800 → font-extrabold */}
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold leading-tight">
               Proyectos en los que
               <br />
               <span className="text-white/30">estoy trabajando ahora.</span>
@@ -354,7 +367,8 @@ export default function GerardVigoLanding() {
                 {/* Header */}
                 <div className="flex items-start justify-between mb-5">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-display font-800"
+                    {/* FIX: font-800 → font-extrabold */}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-display font-extrabold"
                     style={{
                       background: p.color + "22",
                       color: p.color,
@@ -382,7 +396,8 @@ export default function GerardVigoLanding() {
                   </div>
                 </div>
 
-                <h3 className="font-display text-2xl font-800 mb-1">
+                {/* FIX: font-800 → font-extrabold */}
+                <h3 className="font-display text-2xl font-extrabold mb-1">
                   {p.name}
                 </h3>
                 <p className="text-sm text-white/40 mb-4">{p.type}</p>
@@ -426,10 +441,12 @@ export default function GerardVigoLanding() {
           ref={registerRef("skills-section")}
           className={`fade-up ${isVisible("skills-section") ? "visible" : ""}`}
         >
-          <p className="text-xs text-[#D85A30] font-600 tracking-[0.2em] uppercase mb-4">
+          {/* FIX: font-600 → font-semibold */}
+          <p className="text-xs text-[#D85A30] font-semibold tracking-[0.2em] uppercase mb-4">
             Stack técnico
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-800 mb-16 leading-tight">
+          {/* FIX: font-800 → font-extrabold */}
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-16 leading-tight">
             Tecnologías con las que
             <br />
             <span className="text-white/30">trabajo a diario.</span>
@@ -439,7 +456,8 @@ export default function GerardVigoLanding() {
             {SKILLS.map((skill, i) => (
               <div key={skill.label}>
                 <div className="flex justify-between mb-2">
-                  <span className="text-sm font-500 text-white/80">
+                  {/* FIX: font-500 → font-medium */}
+                  <span className="text-sm font-medium text-white/80">
                     {skill.label}
                   </span>
                   <span className="text-sm text-white/30">{skill.level}%</span>
@@ -487,7 +505,8 @@ export default function GerardVigoLanding() {
               >
                 <div className="text-center">
                   <div
-                    className="font-display text-8xl font-800 mb-2"
+                    {/* FIX: font-800 → font-extrabold */}
+                    className="font-display text-8xl font-extrabold mb-2"
                     style={{
                       background: "linear-gradient(135deg, #7F77DD, #5DCAA5)",
                       WebkitBackgroundClip: "text",
@@ -506,10 +525,12 @@ export default function GerardVigoLanding() {
 
             {/* Texto */}
             <div>
-              <p className="text-xs text-[#7F77DD] font-600 tracking-[0.2em] uppercase mb-4">
+              {/* FIX: font-600 → font-semibold */}
+              <p className="text-xs text-[#7F77DD] font-semibold tracking-[0.2em] uppercase mb-4">
                 Sobre mí
               </p>
-              <h2 className="font-display text-4xl font-800 mb-6 leading-tight">
+              {/* FIX: font-800 → font-extrabold */}
+              <h2 className="font-display text-4xl font-extrabold mb-6 leading-tight">
                 Hola, soy Gerard<span className="text-[#7F77DD]">.</span>
               </h2>
               <div className="space-y-4 text-white/50 leading-relaxed text-sm">
@@ -543,7 +564,8 @@ export default function GerardVigoLanding() {
                     className="border border-white/[0.07] rounded-xl p-4 bg-[#0B0B0F]"
                   >
                     <p className="text-xs text-white/30 mb-1">{label}</p>
-                    <p className="text-sm font-500 text-white">{val}</p>
+                    {/* FIX: font-500 → font-medium */}
+                    <p className="text-sm font-medium text-white">{val}</p>
                   </div>
                 ))}
               </div>
@@ -564,10 +586,12 @@ export default function GerardVigoLanding() {
           className={`fade-up ${isVisible("contact-content") ? "visible" : ""}`}
         >
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-xs text-[#5DCAA5] font-600 tracking-[0.2em] uppercase mb-4">
+            {/* FIX: font-600 → font-semibold */}
+            <p className="text-xs text-[#5DCAA5] font-semibold tracking-[0.2em] uppercase mb-4">
               Hablemos
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-800 mb-6 leading-tight">
+            {/* FIX: font-800 → font-extrabold */}
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
               ¿Tienes un proyecto
               <br />
               en mente?
@@ -614,7 +638,8 @@ export default function GerardVigoLanding() {
       {/* ── FOOTER ── */}
       <footer className="border-t border-white/[0.06] py-8">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <span className="font-display font-800 text-white/60">
+          {/* FIX: font-800 → font-extrabold */}
+          <span className="font-display font-extrabold text-white/60">
             GV<span className="text-[#7F77DD]">.</span>
           </span>
           <p className="text-xs text-white/20">
