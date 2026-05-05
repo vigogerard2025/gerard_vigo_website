@@ -1,70 +1,38 @@
-const METRICS = [
-  { n: "4+", label: "Proyectos en curso" },
-  { n: "3", label: "Proyectos entregados" },
-  { n: "<1s", label: "Tiempo de carga objetivo" },
-  { n: "100%", label: "Clientes satisfechos" },
-];
-
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center grid-bg pt-20">
-      {/* Orb de fondo */}
-      <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(127,119,221,0.12) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative max-w-6xl mx-auto px-6 py-24">
-        {/* Badge disponible */}
-        <div className="hero-badge inline-flex items-center gap-2 border border-[#7F77DD]/30 bg-[#7F77DD]/10 rounded-full px-4 py-1.5 mb-10">
-          <span className="w-2 h-2 rounded-full bg-[#5DCAA5] animate-pulse" />
-          <span className="text-xs text-[#9F9AE8] font-semibold tracking-wide">
-            Disponible para proyectos · Trujillo, PE
-          </span>
-        </div>
-
-        {/* Titular */}
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight mb-8">
-          <span className="block text-white">Webs que</span>
-          <span className="block text-[#7F77DD]">hacen crecer</span>
-          <span className="block text-white">tu negocio.</span>
+    <section
+      id="inicio"
+      className="hex-bg min-h-screen flex items-center justify-center"
+    >
+      {/* Centered content — offset slightly right to account for social sidebar */}
+      <div className="text-center px-6 md:pl-14 w-full max-w-3xl mx-auto py-28">
+        <h1
+          className="font-black leading-tight tracking-tight text-[#1a1a1a] mb-6"
+          style={{ fontSize: "clamp(2.2rem, 6vw, 4.5rem)" }}
+        >
+          HEY, SOY<br />
+          GERARD VIGO
         </h1>
 
-        <p className="text-white/50 text-lg md:text-xl max-w-xl leading-relaxed mb-12 font-light">
-          Soy <span className="text-white font-medium">Gerard Vigo</span>,
-          desarrollador web freelance. Diseño y construyo experiencias digitales
-          rápidas, modernas y a medida para empresas que quieren destacar
-          online.
+        <p className="text-[#555] text-sm md:text-base leading-relaxed mb-10 max-w-md mx-auto font-light">
+          Desarrollador web freelance especializado en construir el Frontend
+          de Sitios y Aplicaciones Web que impulsan el éxito y crecimiento
+          de tu negocio online.
         </p>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#proyectos"
-            className="btn-primary px-8 py-3.5 rounded-full font-medium text-sm tracking-wide"
+            className="btn-yellow px-10 py-3.5"
           >
-            Ver proyectos →
+            Proyectos
           </a>
           <a
             href="#contacto"
-            className="btn-outline px-8 py-3.5 rounded-full font-medium text-sm tracking-wide"
+            className="btn-outline-dark px-10 py-3.5"
           >
-            Solicitar presupuesto
+            Contacto
           </a>
-        </div>
-
-        {/* Métricas */}
-        <div className="flex flex-wrap gap-10 mt-20 pt-10 border-t border-white/[0.07]">
-          {METRICS.map(({ n, label }) => (
-            <div key={label}>
-              <p className="font-display text-3xl font-extrabold text-white mb-1">
-                {n}
-              </p>
-              <p className="text-sm text-white/40">{label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

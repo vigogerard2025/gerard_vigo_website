@@ -7,41 +7,39 @@ export default function Skills() {
   const { ref, inView } = useInView();
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-28">
-      <div
-        ref={ref}
-        id="skills-section"
-        className={`fade-up ${inView ? "visible" : ""}`}
-      >
-        <p className="text-xs text-[#D85A30] font-semibold tracking-[0.2em] uppercase mb-4">
-          Stack técnico
-        </p>
-        <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-16 leading-tight">
-          Tecnologías con las que
-          <br />
-          <span className="text-white/30">trabajo a diario.</span>
-        </h2>
+    <section className="section-white py-24">
+      <div className="max-w-5xl mx-auto px-6 pl-16 md:pl-6">
+        <div
+          ref={ref}
+          className={`fade-up ${inView ? "visible" : ""}`}
+        >
+          <p className="section-label">Stack técnico</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a] leading-tight mb-16">
+            Tecnologías con las que<br />
+            <span className="text-[#aaa]">trabajo a diario.</span>
+          </h2>
 
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
-          {SKILLS.map((skill, i) => (
-            <div key={skill.label}>
-              <div className="flex justify-between mb-2">
-                <span className="text-sm font-medium text-white/80">
-                  {skill.label}
-                </span>
-                <span className="text-sm text-white/30">{skill.level}%</span>
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
+            {SKILLS.map((skill, i) => (
+              <div key={skill.label}>
+                <div className="flex justify-between mb-2">
+                  <span className="text-sm font-semibold text-[#1a1a1a]">
+                    {skill.label}
+                  </span>
+                  <span className="text-xs text-[#888] font-medium">{skill.level}%</span>
+                </div>
+                <div className="h-1 bg-[#e8e8e8] overflow-hidden">
+                  <div
+                    className="skill-bar h-full"
+                    style={{
+                      width: inView ? `${skill.level}%` : "0%",
+                      transitionDelay: `${i * 0.1}s`,
+                    }}
+                  />
+                </div>
               </div>
-              <div className="h-1 bg-white/[0.06] rounded-full overflow-hidden">
-                <div
-                  className="skill-bar h-full rounded-full"
-                  style={{
-                    width: inView ? `${skill.level}%` : "0%",
-                    transitionDelay: `${i * 0.1}s`,
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

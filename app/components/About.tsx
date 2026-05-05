@@ -13,77 +13,68 @@ export default function About() {
   const { ref, inView } = useInView();
 
   return (
-    <section id="sobre-mí" className="bg-[#0D0D12] py-28">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="sobre-mí" className="section-alt py-24">
+      <div className="max-w-5xl mx-auto px-6 pl-16 md:pl-6">
         <div
           ref={ref}
-          id="about-content"
-          className={`fade-up ${
-            inView ? "visible" : ""
-          } grid md:grid-cols-2 gap-16 items-center`}
+          className={`fade-up ${inView ? "visible" : ""} grid md:grid-cols-2 gap-14 items-center`}
         >
           {/* Avatar */}
-          <div className="relative">
+          <div className="relative flex justify-center">
             <div
-              className="w-full aspect-square max-w-sm mx-auto rounded-3xl flex items-center justify-center"
-              style={{
-                background:
-                  "linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%)",
-                border: "1px solid rgba(127,119,221,0.2)",
-              }}
+              className="w-56 h-56 flex items-center justify-center"
+              style={{ background: "#1a1a1a" }}
             >
               <div className="text-center">
                 <div
-                  className="font-display text-8xl font-extrabold mb-2"
-                  style={{
-                    background: "linear-gradient(135deg, #7F77DD, #5DCAA5)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
+                  className="font-black text-7xl mb-1"
+                  style={{ color: "#ffc500" }}
                 >
                   GV
                 </div>
-                <p className="text-white/20 text-sm">Gerard Vigo</p>
+                <p className="text-white/40 text-xs tracking-widest uppercase">
+                  Gerard Vigo
+                </p>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl border border-[#7F77DD]/20 bg-[#7F77DD]/5" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 rounded-xl border border-[#5DCAA5]/20 bg-[#5DCAA5]/5" />
+            {/* Decorative border */}
+            <div
+              className="absolute -bottom-3 -right-3 w-56 h-56 border-2 border-[#ffc500]"
+              style={{ zIndex: -1 }}
+            />
           </div>
 
-          {/* Texto */}
+          {/* Text */}
           <div>
-            <p className="text-xs text-[#7F77DD] font-semibold tracking-[0.2em] uppercase mb-4">
-              Sobre mí
-            </p>
-            <h2 className="font-display text-4xl font-extrabold mb-6 leading-tight">
-              Hola, soy Gerard<span className="text-[#7F77DD]">.</span>
+            <p className="section-label">Sobre mí</p>
+            <h2 className="text-3xl font-extrabold text-[#1a1a1a] mb-6 leading-tight">
+              Hola, soy Gerard<span style={{ color: "#ffc500" }}>.</span>
             </h2>
-            <div className="space-y-4 text-white/50 leading-relaxed text-sm">
+            <div className="space-y-4 text-[#555] text-sm leading-relaxed">
               <p>
                 Soy desarrollador web freelance especializado en crear sitios y
-                aplicaciones con <span className="text-white">Next.js</span> y{" "}
-                <span className="text-white">Tailwind CSS</span>. Me apasiona
-                convertir ideas en productos digitales que realmente funcionan.
+                aplicaciones con <span className="text-[#1a1a1a] font-semibold">Next.js</span> y{" "}
+                <span className="text-[#1a1a1a] font-semibold">Tailwind CSS</span>.
+                Me apasiona convertir ideas en productos digitales que realmente funcionan.
               </p>
               <p>
-                Trabajo principalmente con empresas en Trujillo y todo Perú,
-                ayudándolas a tener presencia online profesional, captar más
-                clientes y automatizar procesos.
+                Trabajo con empresas en Trujillo y todo Perú, ayudándolas a tener presencia
+                online profesional, captar más clientes y automatizar procesos.
               </p>
               <p>
-                Cuando no estoy programando, estoy aprendiendo sobre nuevas
-                tecnologías, diseñando interfaces o tomando café.
+                Cuando no estoy programando, estoy aprendiendo nuevas tecnologías,
+                diseñando interfaces o tomando café.
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-4">
+            <div className="mt-8 grid grid-cols-2 gap-3">
               {INFO.map(({ label, val }) => (
                 <div
                   key={label}
-                  className="border border-white/[0.07] rounded-xl p-4 bg-[#0B0B0F]"
+                  className="border border-[#e0e0e0] bg-white p-3"
                 >
-                  <p className="text-xs text-white/30 mb-1">{label}</p>
-                  <p className="text-sm font-medium text-white">{val}</p>
+                  <p className="text-xs text-[#aaa] mb-0.5">{label}</p>
+                  <p className="text-sm font-semibold text-[#1a1a1a]">{val}</p>
                 </div>
               ))}
             </div>
