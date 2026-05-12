@@ -458,13 +458,13 @@ const CSS = `
     flex-direction: column;
     gap: 0.85rem;
   }
-  .about-body p {
-    font-size: 0.9rem;
-    line-height: 1.78;
-    color: var(--muted);
-    margin: 0;
-    font-weight: 300;
-  }
+.about-body p {
+  font-size: 0.9rem;
+  line-height: 1.78;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 300;
+}
   .text-mark {
     background: rgba(200,169,110,0.18);
     color: var(--ink);

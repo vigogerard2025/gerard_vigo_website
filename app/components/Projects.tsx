@@ -25,7 +25,7 @@ const PROJECTS: Project[] = [
     alt: "Página web de hotelería - Hostal Rivera",
     title: "Hostal Rivera",
     tag: "Web Design",
-    year: "2024",
+    year: "2026",
     description:
       "Diseño y desarrollo web completo para Hostal Rivera. Enfocado en transmitir calidez y confianza al visitante, con una experiencia de reserva clara, galería de habitaciones y sección de contacto optimizada para conversión.",
     url: "https://hostal-rivera-page.vercel.app/",
@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
     alt: "Tienda online - E-commerce",
     title: "E-Commerce Store",
     tag: "Frontend",
-    year: "2024",
+    year: "2026",
     description:
       "Tienda online moderna con catálogo de productos, carrito de compras y flujo de pago optimizado. Diseño limpio y rápido centrado en la conversión, con una experiencia de usuario fluida en todos los dispositivos.",
     url: "https://e-commerce-ruddy-tau.vercel.app/",
@@ -133,7 +133,7 @@ export default function Projects() {
 
             <h2 className="projects-title">
               Proyectos en los que
-              <span className="title-muted"> estoy trabajando ahora.</span>
+              <span > estoy trabajando ahora.</span>
             </h2>
 
             <p className="projects-subtitle">
@@ -606,10 +606,12 @@ const CSS = `
     color: var(--ink); margin: 0 0 10px;
     letter-spacing: -0.02em;
   }
-  .modal-desc {
-    font-size: 0.88rem; line-height: 1.75;
-    color: var(--muted); margin: 0 0 1.2rem;
-  }
+ .modal-desc {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #000;
+  margin: 0 0 1.2rem;
+}
 
   /* Link button */
   .modal-link {

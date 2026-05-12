@@ -395,23 +395,23 @@ const CSS = `
   }
   .cloud-in { opacity: 1; }
 
-  .tech-pill {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 7px 16px;
-    background: #fff;
-    opacity: 0;
-    transform: translateY(10px) scale(0.95);
-    animation-fill-mode: both;
-    animation-timing-function: var(--ease);
-    animation-duration: 0.55s;
-    animation-name: pillIn;
-    transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.3s var(--ease);
-  }
+.tech-pill {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #000;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 16px;
+  background: #fff;
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  animation-fill-mode: both;
+  animation-timing-function: var(--ease);
+  animation-duration: 0.55s;
+  animation-name: pillIn;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.3s var(--ease);
+}
   .cloud-in .tech-pill { }
   .tech-pill:hover {
     background: rgba(200,169,110,0.12);
