@@ -92,29 +92,13 @@ export default function Contact() {
 
               {/* Social links */}
               <div className={`social-row ${inView ? "social-in" : ""}`}>
-                <p className="social-label">Encuéntrame en</p>
-                <div className="social-links">
-                  {SOCIAL.map(({ label, href }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      className="social-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {label}
-                      <span className="social-arrow">↗</span>
-                    </a>
-                  ))}
-                </div>
+             
+                
               </div>
 
               {/* Email display */}
               <div className={`email-display ${inView ? "email-in" : ""}`}>
-                <p className="email-hint">Email directo</p>
-                <a href="mailto:gerard@gerardvigo.com" className="email-addr">
-                  vigogerard2025@gmail.com
-                </a>
+                
               </div>
             </div>
 
@@ -131,17 +115,7 @@ export default function Contact() {
                   </p>
 
                   {/* Primary button — email */}
-                  <a
-                    href="mailto:gerard@gerardvigo.com"
-                    className={`btn-primary ${hoveredBtn === "email" ? "btn-hovered" : ""}`}
-                    onMouseEnter={() => setHoveredBtn("email")}
-                    onMouseLeave={() => setHoveredBtn(null)}
-                  >
-                    <span className="btn-fill" />
-                    <span className="btn-icon">✉</span>
-                    <span className="btn-label">Enviar email</span>
-                    <span className="btn-arrow">→</span>
-                  </a>
+                 
 
                   {/* Secondary button — WhatsApp */}
                   <a

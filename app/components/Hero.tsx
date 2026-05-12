@@ -374,7 +374,7 @@ const CSS = `
   .hero-body {
     font-size: 0.93rem;
     line-height: 1.78;
-    color: var(--muted);
+    color: #000;
     margin: 0;
     max-width: 420px;
     font-weight: 300;
@@ -457,13 +457,13 @@ const CSS = `
     color: var(--ink);
     line-height: 1;
   }
-  .stat-label {
-    font-size: 0.63rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
+.stat-label {
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 500;
+}
   /* ── Visual / Card stack ─────────────────── */
   .hero-visual {
     position: relative;

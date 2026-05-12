@@ -141,12 +141,12 @@ export default function About() {
                 Me apasiona convertir ideas en productos digitales que realmente funcionan.
               </p>
               <p>
-                Trabajo con empresas en Trujillo y todo Perú, ayudándolas a tener
+                Trabajo con clentes en Trujillo , ayudándolas a tener
                 presencia online profesional, captar más clientes y automatizar procesos.
               </p>
               <p>
                 Cuando no estoy programando, estoy aprendiendo nuevas tecnologías,
-                diseñando interfaces o tomando café.
+                diseñando interfaces .
               </p>
             </div>
 
